@@ -1,16 +1,19 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 
-var adminSchema= new mongoose.Schema({
- RIG:{
+// Define the admin schema
+const adminSchema = new mongoose.Schema({
+    RIG: {
         type: String,
-        required: [true, "Admin ID is required"]
+        required: [true, "Admin ID is required"], // Validation for Admin ID
     },
-password: {
+    password: {
         type: String,
-        required: [true, "Password is required"]
-    }
-})
+        required: [true, "Password is required"], // Validation for Password
+    },
+});
 
-const adminDB= mongoose.model('adminDB', adminSchema);
+// Create a model from the schema
+const adminDB = mongoose.model('adminDB', adminSchema);
 
+// Export the model for use in other files
 module.exports = adminDB;
